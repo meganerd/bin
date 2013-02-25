@@ -1,0 +1,19 @@
+#!/bin/sh
+#
+# Tests if MOC is running and starts it if it isn't.
+# It toggles play/pause and can start playing from a stopped state
+
+TERMINAL=/usr/bin/urxvt
+SHELL=/bin/sh
+
+if ! ps aux | grep -w "mocp$" | grep -v grep > /dev/null ; then
+    $TERMINAL -name music -e $SHELL -c mocp & > /dev/null
+else
+    STATE=$(mocp -Q '%state')
+    if [ "$STATE" == "STOP" ]; then   # STATE is STOP?
+        mocp -p                       # PLAY
+    else                              # STATE is PLAY/PAUSE?
+        mocp -G                       # Toggle state PLAY/PAUSE
+    fi
+fi
+
