@@ -6,6 +6,14 @@ A few corrections to make the scripts work:
  http://www.benwhale.com/blog/2012/09/06/evince-synctex-support-broke-for-me-today/
 
 
+Software requirements:
+ vim or gvim
+ evince
+ python2.7
+ (vim-latexsuite)
+ (screen)
+ (urxvt)
+
 
 
 Add the following code to ~/.vimrc if you don't want to depend on
@@ -45,8 +53,14 @@ Move the following scripts to a directory within $PATH - fx. /usr/local/bin/
 
 
 
-Add the code below to your makefile
+Add the code below to your makefile. If you're not using urxvt, simply change
+the code to use your favorite terminal emulator. If you use another terminal
+emulator, you may also have to change the flag '-e' to '-x' or even something
+else.
+The variable $(MAIN) in the code below is supposed to be the filename of the
+pdf file that is generated 
 -------------------------------------------------------------------------------
+MAIN = main
 SYNCTEX_PDFREADER = evince-sync
 
 sopen: $(MAIN).pdf
