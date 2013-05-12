@@ -92,7 +92,7 @@ invoke_vim() {
     fi
 
     # Invoke vim
-    TERM=rxvt-unicode-256color vim --servername $SESSION_NAME -c "let w:mainfile='$PDF_FILE'"
+    TERM=rxvt-unicode-256color vim --servername $SESSION_NAME -c "let g:mainfile='$PDF_FILE'"
 }
 
 invoke_tmux() {

@@ -22,7 +22,7 @@ the first source
 -------------------------------------------------------------------------------
 " SyncTex forward search (Vim -> Evince)
 function! SyncTex_ForwardSearch()
-    let cmd = 'evince_forward_search ' . w:mainfile  . ' ' . line(".") . ' ' . expand("%:p")
+    let cmd = 'evince_forward_search ' . g:mainfile  . ' ' . line(".") . ' ' . expand("%:p")
     let output = system(cmd)
 endfunction
 
