@@ -34,7 +34,7 @@ def ValidateFile(filename):
 	# Confirm that the file is really a file
 	if not os.path.isfile(filename):
 		#print "Error: \"" + filename + "\" is not a file!"
-		print "Error: File \"" + filename + "\" does not exist or is not a file!"
+		print >> sys.stderr, "Error: File \"" + filename + "\" does not exist or is not a file!"
 		sys.exit()
 
 	# Get file extension
@@ -42,7 +42,7 @@ def ValidateFile(filename):
 	
 	# Confirm that file extension is of type .jpg
 	if file_extension is "jpg":  
-		print "Error: Unsupported file format for file \"" + filename + "\" - Expected .jpg"
+		print >> sys.stderr, "Error: Unsupported file format for file \"" + filename + "\" - Expected .jpg"
 		sys.exit()
 
 def ValidateDirectory(directory):
@@ -53,7 +53,7 @@ def ValidateDirectory(directory):
 
 	# Confirm that directory is really a directory
 	if not os.path.isdir(directory):
-		print "Error: Directory \"" + directory + "\" does not exist or is not a directory!"
+		print >> sys.stderr, "Error: Directory \"" + directory + "\" does not exist or is not a directory!"
 		sys.exit()
 
 
@@ -65,7 +65,7 @@ def GetRandomFileFromDirectory(directory):
 	# Confirm that at least one file was found
 	nfiles = len(files)
 	if nfiles < 1:
-		print "Error: No files of extension \".jpg\" was found in directory \"" + directory + "\""
+		print >> sys.stderr, "Error: No files of extension \".jpg\" was found in directory \"" + directory + "\""
 		sys.exit()
 		
 	
